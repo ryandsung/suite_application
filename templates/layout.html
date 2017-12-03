@@ -1,0 +1,27 @@
+{% block doc -%}
+<!DOCTYPE html>
+<!--{# Source: https://github.com/mbr/flask-bootstrap/blob/master/flask_bootstrap/templates/bootstrap/base.html #}-->
+<html{% block html_attribs %}{% endblock html_attribs %}>
+{%- block html %}
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+    <title>Prapplication</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    {% endblock %}
+</head>
+<body>
+    {% include 'includes/_navbar.html' %}
+
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
+    
+    {% block scripts %}
+    <script src="{{bootstrap_find_resource('jquery.js', cdn='jquery')}}"></script>
+    <script src="{{bootstrap_find_resource('js/bootstrap.js', cdn='bootstrap')}}"></script>
+    {%- endblock scripts -%}
+    
+</body>
+{%- endblock html %}
+{% endblock doc -%}
